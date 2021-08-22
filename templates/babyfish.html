@@ -1,0 +1,45 @@
+{% extends "fishlayout.html" %}
+{% block title %}
+Baby fish
+{% endblock %}
+{% block style %}
+{% endblock %}
+{% block content %}
+<div class="card-columns">
+<div id="mothercard" class="card" name="fcard">
+    <img id="mpic" class="card-img-top bder" src="/static/images/genericfish.png" alt="yur fish">
+    <div class="card-body">
+        <h5 id="mbio" class="card-title">Fish One</h5>
+        <p id="mtext" class="card-text">Choose one of your fish</p>
+        <select style="width: 300px" form="spawnform" name="mother" onchange="selectParentsPost(this.value, 'MOTHER')">
+            <option value="" disabled selected>Select</option>
+            {% for fish in myschool %}
+            <option value="{{ fish.fish_id }}">{{ fish.name }} the {{ fish.image }}</option>
+            {% endfor %}
+        </select>
+    </div>
+</div>
+
+<div class="card" style="width: 100px; border: none; margin-left: 37%; margin-top: 20%;">
+    <img style="width: 100px" src="/static/svg/plus.svg" alt="plus icon">
+</div>
+
+<div id="fathercard" class="card" name="fcard">
+    <img id="fpic" class="card-img-top bder" src="/static/images/flippedfish.png" alt="other fish">
+    <div class="card-body">
+        <h5 id="fbio" class="card-title">Fish Two</h5>
+        <p id="ftext" class="card-text">Choose someone else's fish</p>
+        <select style="width: 300px" form="spawnform" name="father" onchange="selectParentsPost(this.value, 'FATHER')">
+            <option value="" disabled selected>Select</option>
+            {% for fish in otherfish %}
+            <option value="{{ fish.fish_id }}">{{ fish.name }} the {{ fish.image }}</option>
+            {% endfor %}
+        </select>
+    </div>
+</div>
+</div>
+
+<form style="margin-left: 47%;" id="spawnform" method="POST" action="/myfish">
+    <button class="btn btn-outline-info" type="submit" name="mergebutton">Go!</button>
+</form>
+{% endblock %}

@@ -1,0 +1,171 @@
+.photo
+{
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid black;
+}
+
+.caption
+{
+    padding: 15px;
+    text-align: center;
+}
+
+.gallery
+{
+    width: 18rem;
+    margin: 5px;
+    border: 2px solid black;
+    float: left;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.paragraph
+{
+    padding: 50px;
+    margin-left: -40px;
+}
+
+.home
+{
+    float: right
+}
+
+.home:hover {
+    color: crimson;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.crestimg
+{
+    background-image: url("images/crest.png");
+    opacity: 0.9;
+}
+
+.cooltitle
+{
+    text-align: center;
+    background-color: white;
+    padding: 15px;
+}
+
+table   {
+    margin: 15px;
+}
+
+.tabb  {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: wheat;
+    text-align: right;
+}
+
+.holder {
+    width: 100%;
+    height: 350px;
+}
+
+.headers    {
+    margin: 20px;
+}
+
+/* navbar */
+
+.navbar {
+    background-color: lightslategray;
+    font-size: 1em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    padding: 8px 5px 8px 5px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.navbar-brand {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.navbar-item {
+    font-variant: small-caps;
+    margin-left: 30px;
+}
+
+.body-content {
+    padding: 5px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Moments */
+
+.momen    {
+    background-image: url(https://d3ui957tjb5bqd.cloudfront.net/images/screenshots/products/76/761/761494/preview-05-o.png?1446836676);
+    opacity: 0.95;
+}
+.boxes  {
+    width: 100%;
+    height: 400px;
+}
+
+.space  {
+    margin-left: 8%;
+}
+
+.formm    {
+    padding: 10px;
+    margin-left: 10%;
+    margin-top: 20px;
+}
+
+/* Rivals page */
+
+.caphold    {
+    width: 100%;
+    padding: 10px;
+}
+
+.rivcom {
+    margin: auto;
+    padding: 10px;
+}
+
+.rivcard    {
+    width: 18rem;
+    height: auto;
+    margin: auto;
+    border: 2px solid #ccc;
+    background-color: #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.rivhold    {
+    width: 24rem;
+    float: left;
+    margin: auto;
+    margin-top: 4%;
+    height: 400px;
+}
+
+.image    {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #ccc;
+}
+
+.opt    {
+    margin-left: 10px;
+}
+
+.salmon {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: darksalmon;
+}

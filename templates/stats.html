@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% block title %}
+Stats
+{% endblock %}
+{% block content %}
+<div style="background-image: linear-gradient(red, green)">
+    <select>
+        <option>Early History</option>
+        <option>Awards</option>
+        <option>Stats that matter</option>
+    </select>
+    <h2 class="headers">Early History</h2>
+    <div class="holder">
+        <div class="gallery" style="background-color: white; float: left">
+            <img class="photo" src="{{ url_for('static', filename='images/fraser_battlefront.jpg')}}" alt="Star Wars">
+            <div class="caption">Playing with Level 23 Obi Wan!</div>
+        </div>
+        <div class="gallery" style="background-color: white; float: left">
+            <img class="photo" src="{{ url_for('static', filename='images/positions.png')}}" alt="We're all forwards">
+            <div class="caption">Starting off with 4 players, Krack City quickly grew to 6 attacking players.</div>
+        </div>
+    </div>
+    <h2 class="headers">Awards</h2>
+    <ul>
+        <li>Most Red cards: F. Kidler (35)</li>
+        <li>Most Goals: B. Lim (152)</li>
+        <li>Most MotM: B. Lim (62)</li>
+        <li>Highest Win %: B. B. Becks (39%)</li>
+        <li>Most Assists: P. Evans (132)</li>
+        <li>Lowest Pass completion: B. Vish (66%)</li>
+        <li>Lowest Tackle completion: F. Kidler (9%)</li>
+        <li>Lowest Shot accuracy: R. Getard (11%)</li>
+    </ul>
+    <h2 class="headers">Stats that matter</h2>
+    <div class="holder">
+        <div class="gallery" style="background-color: white;">
+            <img class="photo" src="{{ url_for('static', filename='images/winloss.png')}}" alt="Waiting for the 100th win">
+            <div class="caption">Now no one wants to play and we're yet to achieve our 100th win.</div>
+        </div>
+        <table style="border-collapse: collapse; margin-top: 15px;">
+            <tr>
+                <th class="tabb">Name</th>
+                <th class="tabb">% Red Cards per Game</th>
+                <th class="tabb">% Red Cards per Goal</th>
+            </tr>
+            <tr>
+                <td class="tabb">Big Vish</td>
+                <td class="tabb">1.7%</td>
+                <td class="tabb">3.6%</td>
+            </tr>
+            <tr>
+                <td class="tabb">Ray Zuberi</td>
+                <td class="tabb">11%</td>
+                <td class="tabb">104%</td>
+            </tr>
+            <tr>
+                <td class="tabb">Big Lim</td>
+                <td class="tabb">5.9%</td>
+                <td class="tabb">9.9%</td>
+            </tr>
+            <tr>
+                <td class="tabb">Rection</td>
+                <td class="tabb">18%</td>
+                <td class="tabb">90%</td>
+            </tr>
+            <tr>
+                <td class="tabb">Pevans</td>
+                <td class="tabb">7.2%</td>
+                <td class="tabb">15%</td>
+            </tr>
+            <tr>
+                <td class="tabb">Big Bad Becks</td>
+                <td class="tabb">13%</td>
+                <td class="tabb">50%</td>
+            </tr>
+        </table>
+    </div>
+</div>
+{% endblock %}

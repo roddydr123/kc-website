@@ -1,0 +1,67 @@
+{% extends "fishlayout.html" %}
+{% block title %}
+The Reef
+{% endblock %}
+{% block style %}
+<style>
+body    {
+    background-image: url(https://wallpapercave.com/wp/MS1IczY.jpg);
+    background-size: cover;
+}
+</style>
+{% endblock %}
+{% block content %}
+<div class="card mb-3">
+    <div class="card-body">
+        <h5 class="card-title">Version 1.3: What's new?</h5>
+        <p class="card-text">
+            <ul>
+                <li style="background-color: blanchedalmond;">Club Fish theme music lovingly composed by Jonny Flamingo! Go to the More Fish tab to listen</li>
+                <li>Mingling - you can make a new fish with someone else's, it gets a fancy new name</li>
+                <li>You can now comment on fish</li>
+                <li>Notifications (top right) show every new interaction with any of your fish</li>
+                <li>Fanfare sound when you respect a fish - also made by Jonny</li>
+                <li>Deleting fish is now possible</li>
+            </ul>
+        </p>
+    </div>
+</div>
+{% if message %}
+<div class="p-2 bd-highlight msg">
+    Your school is empty :(
+    <a class="btn btn-info" href="{{ url_for('myfish') }}">Make a fish?</a>
+</div>
+{% else %}
+<div class="card-columns">
+    {% for info in dicts %}
+    {% if info.first == True %}
+        <div class="card mb-3" style="background-color: darkkhaki;">
+            <img class="card-img-top bder" src="static/images/{{ info.image }}.jpg" alt="your fish">
+            <form method="POST" action="/deletefish">
+                <button name="fish_id" value="{{ info.fish_id }}" class="btn" style="float: right"><img style="width: 10px; margin: auto;" class="navbar-item" src="/static/svg/trash.svg" alt="icon"></img></button>
+            </form>
+            <div class="card-body">
+                <h5 class="card-title">Your most recent addition: {{ info.name }}</h5>
+                <p class="card-text">
+                    {{ info.name }} is now {{ info.age }} days old. {{ info.pron1 }} is a big strong {{ info.image }} who has earned {{ info.respect }} respect over {{ info.pron2 }} {{ info.adjective }} life.
+                </p>
+            </div>
+        </div>
+    {% else %}
+        <div class="card mb-3">
+            <img class="card-img-top bder" src="static/images/{{ info.image }}.jpg" alt="your fish">
+            <form method="POST" action="/deletefish">
+                <button name="fish_id" value="{{ info.fish_id }}" class="btn" style="float: right"><img style="width: 10px; margin: auto;" class="navbar-item" src="/static/svg/trash.svg" alt="icon"></img></button>
+            </form>
+            <div class="card-body">
+                <h5 class="card-title">{{ info.name }} the {{ info.image }}</h5>
+                <p class="card-text">
+                    {{ info.name }} is now {{ info.age }} days old. {{ info.pron1 }} has earned {{ info.respect }} respect over {{ info.pron2 }} {{ info.adjective }} life.
+                </p>
+            </div>
+        </div>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}

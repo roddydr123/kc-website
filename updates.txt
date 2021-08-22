@@ -1,0 +1,238 @@
+14/07/20
+
+clubfish.css - mobile pixel max changed to 750
+
+app.py 	- removed flask.escape import
+	- rivals sql query based on fish_id not time
+	- removed app.run()
+	- added route to friends
+	- added name length limit for new fish
+
+fishlayout.html	- navbar club link to lookup
+
+rivalfish.html	- changed so all tabs are collapsed at start
+
+lookup.html	- created it, has a search bar and a collapsible results table
+		- added a card to display the fish with the most respect
+
+changed tack	- not having friends per se but you can look up a user by their name
+	      	and see all their fish
+-------------------------------------------------------------------------------------
+next ideas:
+	- clubs you can join and see members
+	- sending messages to other users
+	- a list of other users
+	- change rivals to make it more dynamic
+	- come up with better respect system than single session boolean
+
+-------------------------------------------------------------------------------------
+15/07/20
+
+lookup.html	- changed layout to bootstrap card columns
+		- added tabs and hall of fame, all fish
+
+pymethods.py	- added method dbs() to fully communicate with database
+
+app.py		- implemented dbs() method for db relations
+
+myfish.html	- added lumpsucker fish
+
+fishlayout.html	- changed name of search to find fish
+
+hotfix of app.py and lookup.html
+
+another hotfix needed to fix respect button not taking effect
+
+rivalfish
+app.py
+lookup.html
+-------------------------------------------------------------------------------------
+Version 1.1
+
+ideas:
+moot	- change the fetchall() data to JSON string before sending to html file
+	- use AJAX to make the buttons asynchronous
+done	- fix the respect/diss button layout issue
+	- users can upload their own photos and add type to myfish.html
+
+changed:
+
+	clubfish.html	- html checker
+
+	app.py		-loads
+			-REMEMBER TO REMOVE app.run() FROM THE BOTTOM
+	
+	pymethods.py
+	rivalfish.html
+	fishlayout.html
+	fishhome.html
+	myfish.html
+	add jquery to static
+
+
+What I was doing:
+		- trying to get the rivals add respect button to send a post request to respect_incr
+		using ajax but that wasnt working so i was testing how far the fish_id variable got.
+		- seemed to make it to the js helper function and could be alerted but the post request to
+		respect wasnt happening (not in the logs).
+		- using /respec route to test this, was also happening alongside the normal synch request
+		so some fishs respect is going up fast
+		- nulled the session['respect'] to make it faster so need to change that before updating website
+
+Version 1.1 continued
+
+literally nothing achieved
+cannot get ajax to sumbit a single request
+-------------------------------------------------------------------------------------
+Version 1.1 continued
+21/07/20
+
+Set up new environment to test AJAX.
+Managed to get both GET and POST requests working and sending data from an input to
+the server and back.
+Can do operations on the data in app.py.
+Will now attempt to apply this to clubfish.
+Will require some simplification and probably a lot of testing before deployment.
+
+Signing off now - finished ajax implementation of respect buttons for lookup and rivals
+	- they now work async albeit the inner html replacement is janky
+	- idea for RESPECTED to appear on a fish once youve respected it
+
+-------------------------------------------------------------------------------------
+1.1 cont.
+22/07/20
+
+Implementing RESPECTED idea with image text and JS to make it appear once respected
+Will try and make the respect/diss buttons disabled once clicked once
+Could make a session array containing all the fish respected, each time the user
+tries to respect a new fish it checks if the id is already present in the array.
+Fixed mix of render template and redirect in login route
+Now implement new respect system for lookup page - DONE
+DONE adding features, will test and refine what i have now to finish 1.1 soon
+
+theres a little bug for the fish that are on both hall of fame and all fish pages:
+the respect button doesnt get blanked and the text only shows after a refresh if
+yuoou try and respect a second time on the other card
+
+To upload:
+app.py
+fishhelpers.js
+lookup.html
+rivalfish.html
+clubfish.css
+myfish.html
+pymethods.py
+fishhome.html
+fishlayout.html
+jquery-3.5.1.js
+haddock image
+
+-------------------------------------------------------------------------------------
+Version 1.2
+
+adding comments for fish
+
+this will need a new table in the database with a foreign key of fish_id and a column
+for comments.
+could also add attributes to fish some way?
+also want to add the least respected fish to the hall of fame
+
+- least respected is now in hall of fame
+- your own fish do not show in all fish
+
+comments progress:
+	- added table to database called comments
+	- columns id PK, fish_id FK, user_id FK, comment TEXT
+
+made more progress on comments, was working towards displaying them properly in jinja
+so they dont all show for each fish in rivals
+-------------------------------------------------------------------------------------
+Version 1.2
+
+Working on comments
+	- works async with jquery!!
+	- need to do it for lookup now
+
+added a hash generator in pymethods called getAdjective(list, fish_id)
+added adjectives/nouns to fishhome and lookup
+
+will not implement comments the same way for lookup
+you have to press a button, ajax request to /viewcomments with the fish_id returns
+JSON with all the comments which are then displayed in a modal
+works for hall of fame, continuing to add to rest of page
+comments and view comments added for all of lookup
+error handling if the date format is not correct
+changed navbar
+
+implemented a fishes respect being passed to getAdjective so its adjectives change
+HoF fish no longer appear in All Fish as it was causing bugs as theyre on the same page
+
+Version 1.2 is online
+-------------------------------------------------------------------------------------
+Verion 1.2.1
+
+adding Jonny's sounds
+need to upload:
+	- Main-Theme.wav
+	- Trumpet-Fanfare.wav
+to static folder
+
+made changes to app.py to make nouns/adjectives list location dynamic using os.path
+reupload fishhelpers.js and lookup.html, fishhome.html
+
+done
+-------------------------------------------------------------------------------------
+Version 1.3
+idea:
+	- add a notifications page which allows you to see all interations with your
+	fish
+	- would require a new db table holding all interactions: id, actor_id, actee_id, action, time, fish_id,
+
+need to create a page and a route to fetch and display notifications
+also need to modify all action routes to also add info to this new table
+
+KRACK CITY UPDATE FOR WINNING THE NO RULES CUP - done
+
+try making the notifications button red if there are new ones
+done
+breeding fish, maybe mashes up the names (potentially does something to the photo too
+implement:
+	- new page which allows you to choose one of your fish and another fish
+	- 2 dropdown menus of names to choose from, once you select it shows the two fish
+	- click a button to breed them, adds a new fish to your school via /myfish post
+	- modify /myfish post to test for breed button and make it mash up the names 
+	- reloads the page with a post request to /babyfish and displays your new fish
+delete a fish - done
+mingling fish is now a notification
+
+
+CHANGING FISH TABLE:
+	- type is now species
+	- new column called 'image' for image url
+try adding 2 new columns to fish table to keep track of parents
+null if it's a newly generated fish
+
+added two new txt files for prefixes and suffixes of bred fish
+extended pymethods newName() to include these
+
+now will clean the db file and upload
+
+changed files:
+	nmoments.html
+	index.html
+	nnrivals.html
+	fishhelpers.js
+	fishhome.html
+	images (celebration)
+	fishlayout.html
+	pymethods.py
+	app.py
+	lookup.html
+	notifications.html
+	clubfish.db needs to be downloaded and edited
+
+uploaded! no fixes needed so far
+-------------------------------------------------------------------------------------
+Version 1.4
+maybe a family tree for fish? using the mother/father columns in fish
+funky images now that its not dependent on species?

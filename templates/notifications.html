@@ -1,0 +1,18 @@
+{% extends "fishlayout.html" %}
+{% block title %}
+Notifications
+{% endblock %}
+{% block style %}
+{% endblock %}
+{% block content %}
+<h1 style="margin: 10px;">All notifications</h1>
+<div style="margin-left: 2%; margin-top: 2%; border: 2px solid black; max-width: 28rem; padding: 5px;">
+    {% if notifications %}
+    {% for notif in notifications %}
+    <p style="padding: 5px; background-color: rgb(133, 148, 156); border-radius: 5px;">Alert: {{ notif.username }} {{ notif.action }} {{ notif.name }} {{ notif.time }}</p>
+    {% endfor %}
+    {% else %}
+    <p style="padding: 5px; background-color: rgb(133, 148, 156); border-radius: 5px;">No Notifications</p>
+    {% endif %}
+</div>
+{% endblock %}

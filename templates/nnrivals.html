@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% block title %}
+Rivals
+{% endblock %}
+{% block content %}
+<style>
+body    {
+    background-color: salmon;
+}
+</style>
+<div class="boxes">
+    <div class="gallery space">
+        <img src="{{ url_for('static', filename='images/chuff.png')}}" class="photo" alt="chuff bucket">
+        <div class="caption">
+            <h6 class="rivcom">Rate this statement: I'd Chuff in that bucket.</h6>
+            <div class="rivcom">
+                <label class="container">
+                <h6 class="opt">Strongly Agree</h6>
+                <input type="radio" checked="checked" name="radio">
+                <span class="checkmark"></span>
+                </label>
+                <label class="container">
+                <h6 class="opt">Agree</h6>
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+                </label>
+                <label class="container">
+                <h6 class="opt">Disagree</h6>
+                <input type="radio" name="radio">
+                <span class="checkmark"></span>
+                </label>
+                <label class="container">
+                <h6 class="opt">Strongly Disagree</h6>
+                <input id= "std" type="radio" name="radio">
+                <span class="checkmark"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="gallery space">
+        <img src="{{ url_for('static', filename='images/fromage_orage.png')}}" class="photo" alt="cheese thunderstorm">
+        <div class="caption">
+            <h5 class="rivcom">Le Fromage Orage</h5>
+            <h6 class="rivcom">FIFA is so scripted</h6>
+            <h6 class="rivcom">Image credit to F. Kidler</h6>
+        </div>
+    </div>
+    <div class="gallery space">
+        <div style="width: 100%; float: left">
+            <img src="{{ url_for('static', filename='images/andys_team.jpg')}}" class="photo" alt="andys team stats">
+            <img src="{{ url_for('static', filename='images/beegjuicy.png')}}" class="photo" alt="andys team lost to mums got clap">
+        </div>
+        <div class="caption">
+            <h5>Andy's Team</h5>
+            <h6>We'd like to know how you would feel playing against this team?</h6>
+            <div class="btn-group">
+                <button type="button" class="btn btn-danger">Comfortable</button>
+                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item">Scared</a>
+                    <a class="dropdown-item">Hot under the collar</a>
+                    <a class="dropdown-item">Comfortable</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="https://en.wikipedia.org/wiki/He_Pingping">Dangerously small</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <script>
+        document.querySelector("#std").onclick = function() {
+        alert("what's wrong with you?");
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,202 @@
+{% extends "fishlayout.html" %}
+{% block title %}
+Friends
+{% endblock %}
+{% block style %}
+<style>
+    body{
+        background-color: black;
+    }
+</style>
+{% endblock %}
+{% block content %}
+{% if search_fren %}
+    <div class="accordion" id="searchlist">
+        {% for fish in info %}
+        <div class="card">
+            <div class="card-header" id="w-{{ fish.name }}">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#q-{{ fish.name }}" aria-expanded="true" aria-controls="q-{{ fish.name }}">
+                    {{ fish.name }} the {{ fish.image }}
+                    </button>
+                </h2>
+            </div>
+            <div id="q-{{ fish.name }}" class="collapse" aria-labelledby="w-{{ fish.name }}" data-parent="#searchlist">
+                <div class="card-body">
+                    <ul>
+                        <li>Respect: {{ fish.respect }}</li>
+                        <li>Owner: {{ fish.username }}</li>
+                        <li>Birthday: {{ fish.birth }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% else %}
+<audio controls loop autoplay style="background-color: antiquewhite;">
+    <source src="static/Main-Theme.wav" type="audio/wav">
+    <div>Doesn't look like your browser supports this audio player :(</div>
+</audio>
+<nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-mostrespect-tab" data-toggle="tab" href="#nav-mostrespect" role="tab" aria-controls="nav-mostrespect" aria-selected="true">Hall of Fame</a>
+        <a class="nav-item nav-link" id="nav-norespect-tab" data-toggle="tab" href="#nav-norespect" role="tab" aria-controls="nav-norespect" aria-selected="false">All Fish</a>
+        <a class="nav-item nav-link" id="nav-search-tab" data-toggle="tab" href="#nav-search" role="tab" aria-controls="nav-search" aria-selected="false">Search</a>
+    </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade" id="nav-search" role="tabpanel" aria-labelledby="nav-search-tab">
+        <div class="card p-3" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Search for a user!</h5>
+                <p class="card-text">
+                    <form method='post' action='/lookup'>
+                        <input style="margin-bottom: 10px;" type='text' name='username' placeholder="eg F Kidler">
+                        <button type='submit' class="btn btn-outline-info">Search</button>
+                    </form>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade show active" id="nav-mostrespect" role="tabpanel" aria-labelledby="nav-mostrespect-tab">
+        <div class="card-columns" style="margin-top: 10px;">
+            {% for winner in winners %}
+            <div class="card" style="width: 18rem;">
+                <div class="containerr" style="width: 100%;">
+                    <img src="static/images/{{ winner.image }}.jpg" class="card-img-top" alt="fish respect max">
+                    <div id="R-{{ winner.fish_id }}" style="font-size: xx-large;" class="centered">{{ winner.respected }}</div>
+                </div>
+                <div style="padding-bottom: 50px;" class="card-body">
+                    <h5 class="card-title">{{ winner.name }} the {{ winner.image }}</h5>
+                    <p id="i-{{ winner.fish_id }}" class="card-text">With {{ winner.respect }} respect</p>
+                    <p style="margin-top: -10px;">it's {{ winner.username }}'s most {{ winner.adjective }} {{ winner.noun }}.</p>
+                    <div class="modal fade" id="Modal-{{ winner.fish_id }}" tabindex="-1" role="dialog" aria-labelledby="ModalLabel-{{ winner.fish_id }}" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="ModalLabel-{{ winner.fish_id }}">Comments about {{ winner.name }}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div id="list-{{ winner.fish_id }}" class="modal-body"></div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    {% if winner.respected %}
+                    <button disabled class="btn btn-success">Respect</button>
+                    <button disabled class="btn btn-warning">Diss</button>
+                    {% else %}
+                    <button id="r-{{ winner['fish_id'] }}" onclick="chngrespect(this.value, 'look','resp')" value="{{ winner['fish_id'] }}" class="btn btn-success">Respect</button>
+                    <button id="d-{{ winner['fish_id'] }}" style="margin-left: 5px" onclick="chngrespect(this.value, 'look', 'diss')" value="{{ winner['fish_id'] }}" class="btn btn-warning">Diss</button>
+                    {% endif %}
+                    <button class="comformlookup btn btn-primary" value="{{ winner.fish_id }}" style="margin-top: 10px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal-{{ winner.fish_id }}">
+                        View comments
+                    </button>
+                    <p id="newcom-{{ winner.fish_id }}"></p>
+                    <form class="comform" method="post">
+                        <input style="margin-bottom: 10px;" name="commentstr" class="form-control" placeholder="Leave a comment!" type="text">
+                        <button name="fish_id" value="{{ winner.fish_id }}" class="btn btn-outline-success">Comment</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+            <div class="card" style="width: 18rem; background-color: red;">
+                <div class="containerr" style="width: 100%;">
+                    <img src="static/images/{{ last.image }}.jpg" class="card-img-top" alt="fish respect max">
+                    <div id="R-{{ last.fish_id }}" style="font-size: xx-large;" class="centered">{{ last.respected }}</div>
+                </div>
+                <div style="padding-bottom: 50px;" class="card-body">
+                    <h5 class="card-title">{{ last.name }} the {{ last.image }}</h5>
+                    <p id="i-{{ last.fish_id }}" class="card-text">With {{ last.respect }} respect</p>
+                    <p style="margin-top: -10px;">it's {{ last.username }}'s greatest failure</p>
+                    {% if last.respected %}
+                    <button disabled class="btn btn-success">Respect</button>
+                    <button disabled class="btn btn-warning">Diss</button>
+                    {% else %}
+                    <button id="r-{{ last.fish_id }}" onclick="chngrespect(this.value, 'look','resp')" value="{{ last.fish_id }}" class="btn btn-success">Respect</button>
+                    <button id="d-{{ last.fish_id }}" style="margin-left: 5px" onclick="chngrespect(this.value, 'look', 'diss')" value="{{ last.fish_id }}" class="btn btn-warning">Diss</button>
+                    {% endif %}
+                    <div class="modal fade" id="Modallast-{{ last.fish_id }}" tabindex="-1" role="dialog" aria-labelledby="ModallastLabel-{{ last.fish_id }}" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="ModallastLabel-{{ last.fish_id }}">Comments about {{ last.name }}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div id="list-{{ last.fish_id }}" class="modal-body"></div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <button class="comformlookup btn btn-primary" value="{{ last.fish_id }}" style="margin-top: 10px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modallast-{{ last.fish_id }}">
+                        View comments
+                    </button>
+                    <p id="newcom-{{ last.fish_id }}"></p>
+                    <form class="comform" method="post">
+                        <input style="margin-bottom: 10px;" name="commentstr" class="form-control" placeholder="Leave a comment!" type="text">
+                        <button name="fish_id" value="{{ last.fish_id }}" class="btn btn-success">Comment</button>
+                    </form>
+                </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="nav-norespect" role="tabpanel" aria-labelledby="nav-norespect-tab">
+        <div class="card-columns" style="margin-top: 10px;">
+            {% for loser in losers %}
+            <div class="card" style="width: 18rem;">
+                <div class="containerr" style="width: 100%;">
+                    <img src="static/images/{{ loser.image }}.jpg" class="card-img-top" alt="fish respect min">
+                <div id="R-{{ loser.fish_id }}" style="font-size: xx-large;" class="centered">{{ loser.respected }}</div>
+                </div>
+                <div style="padding-bottom: 50px;" class="card-body">
+                    <h5 class="card-title">{{ loser.name }} the {{ loser.image }}</h5>
+                    <p id="i-{{ loser.fish_id }}" class="card-text">With {{ loser.respect }} respect</p>
+                    <p style="margin-top: -10px;">it's {{ loser.username }}'s {{ loser.adjective }} {{ loser.noun }}.</p>
+                    {% if loser.respected %}
+                    <button disabled class="btn btn-success">Respect</button>
+                    <button disabled class="btn btn-warning">Diss</button>
+                    {% else %}
+                    <button id="r-{{ loser.fish_id }}" onclick="chngrespect(this.value, 'look', 'resp')" value="{{ loser.fish_id }}" class="btn btn-success">Respect</button>
+                    <button id="d-{{ loser.fish_id }}" style="margin-left: 5px" onclick="chngrespect(this.value, 'look', 'diss')" value="{{ loser.fish_id }}" class="btn btn-warning">Diss</button>
+                    {% endif %}
+                    <div class="modal fade" id="Modal-{{ loser.fish_id }}" tabindex="-1" role="dialog" aria-labelledby="ModalLabel-{{ loser.fish_id }}" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="ModalLabel-{{ loser.fish_id }}">Comments about {{ loser.name }}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div id="list-{{ loser.fish_id }}" class="modal-body"></div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <button class="comformlookup btn btn-primary" value="{{ loser.fish_id }}" style="margin-top: 10px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal-{{ loser.fish_id }}">
+                        View comments
+                    </button>
+                    <p id="newcom-{{ loser.fish_id }}"></p>
+                    <form class="comform" method="post">
+                        <input style="margin-bottom: 10px;" name="commentstr" class="form-control" placeholder="Leave a comment!" type="text">
+                        <button name="fish_id" value="{{ loser.fish_id }}" class="btn btn-success">Comment</button>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

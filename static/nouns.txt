@@ -1,0 +1,596 @@
+    acquaintance
+    ally
+    associate
+    buddy
+    classmate
+    colleague
+    companion
+    cousin
+    partner
+    roommate
+    chum
+    cohort
+    compatriot
+    comrade
+    consort
+    crony
+    familiar
+    intimate
+    mate
+    pal
+    playmate
+    schoolmate
+    sidekick
+    spare
+    well-wisher
+    alter ego
+    bosom buddy
+    soul mate
+    sister from another mister
+buddy
+companion
+comrade
+mate
+pal
+associate
+ally
+chum
+sidekick
+playmate
+bro
+amigo
+fellow
+crony
+partner
+colleague
+friend
+confidant
+friendly neighbour
+intimate friend
+schoolmate
+supporter
+dude
+classmate
+boyfriend
+girlfriend
+backer
+friend of mine
+fella
+best friend
+bud
+guys
+close friend
+champion
+soul mate
+workmate
+acquaintance
+booster
+benefactor
+pal
+protagonist
+matey
+co-worker
+date
+roomie
+homie
+old chap
+folks
+admirer
+coworker
+pally
+teammate
+dawg
+boy
+boyfriends
+patron
+roommate
+shipmate
+fella
+mate
+helpmate
+girl
+confidante
+alter ego
+benefactress
+sponsor
+amigo
+person
+compadre
+main man
+familiar
+second self
+brother
+true friend
+angel
+peeps
+flatmate
+quaker
+bestie
+buddy boy
+little friend
+peer
+man
+helper
+lady friend
+hook
+sweetheart
+kith
+comrades
+your pal
+brother from another mother
+fellow member
+sister from another mister
+member
+little buddy
+bruvver
+boy friend
+your buddy
+compere
+compadre
+pal
+bedfellow
+ex-girlfriend
+man
+yaar
+good buddy
+homeboy
+bosom buddy
+sister
+old friend
+lady
+good friend
+one friend
+wingman
+sweetie
+cully
+homegirl
+old man
+old boy
+mucker
+good friend
+bosom friend
+companions
+playfellow
+defender
+old buddyman
+contributor
+good friend
+lover
+ally
+friendship
+dog
+homey
+dearie
+bromance
+cobber
+paisan
+great friend
+marra
+oppo
+dear friend
+woman
+spar
+gal pal
+comate
+ancient
+older
+girlfrien
+donor
+buddy
+befriend
+boaster
+truelove
+befriender
+buddy of mine
+matie
+marrow
+connections
+foeman
+bruv
+bosom pal
+close
+members
+felloe
+mate
+fellowman
+sympathiser
+datin
+well-wisher
+your guy
+boyfriend
+fellow worker
+fellow employee
+old folks
+elderly
+supporters
+fellow mep
+acquaintances
+hoss
+good friends
+honourable friend
+little girlfriend
+palling
+fellow-commissioner
+woot
+cher
+good friend of mine
+kiddo
+partner off
+little fellow
+good fellow
+old friend
+ulan
+gabba
+contact
+old-fashioned
+few friend
+marrer
+little pal
+china
+subscriber
+butty
+befriender
+champions
+my pals
+child-friendly guy
+cronies
+counterpart
+female friend
+playmates
+girl friend
+fam
+man-friend
+old fellow
+lady-friend
+assistant
+my mates
+promoter
+boosters
+friendless friend
+crewmate
+freind
+brother-in-arms
+sisters
+sponsors
+bros
+company
+escort
+employee
+your colleague
+brother in arms
+confederate
+bride
+fellow student
+attendant
+kindred spirit
+old line
+mutual friend
+our guy
+accomplice
+donors
+dirty old
+my boyfriend
+being friend
+brothers
+mes amis
+took the side
+old dudes
+tovarich
+homies
+adherents
+little fella
+little guy
+kids
+plugging
+woman friend
+my girlfriend
+little playmate
+couple of friend
+muchacho
+feller
+pal of mine
+unfriended
+pal up
+fellow pupil
+bezzie
+very good friend
+work colleague
+cooperator
+gal-pal
+girlfriend of mine
+gentleman friend
+boon companion
+honourable colleague
+colleagues
+over the hill
+shadow
+bucko
+fidus achates
+my boy
+any friend
+female companion
+friending
+fiancé
+very old friend
+old pal
+mate of mine
+sideman
+just friend
+true love
+buddy up
+his buddy
+frienïs
+supportive friend
+brethren
+male friend
+buds
+man friend
+fellah
+old bloke
+fiancée
+my comrades
+mi amigo
+work colleagues
+chap
+sport
+our side
+oldest friend
+compadres
+his companions
+our man
+house sitter
+tank engine
+aare
+friendly man
+person
+girlf
+buddy-boy
+mythe
+some one
+giver
+jeevesy
+comrade-in-arms
+accessory
+team mate
+old lady
+my date
+aider
+amicable
+my old buddy
+friendliest
+your old buddy
+no friends
+love
+beloved
+mac daddy
+follower
+scallywag
+pallie
+piece together
+financier
+help
+cohort
+philanthropist
+offsider
+compatriot
+mutual friend
+neighborly
+personal friend
+aide
+for the firm
+special friend
+contacts
+blud
+cell-mate
+loyal friend
+just a friend
+be a friend
+guarantor
+broheim
+underwriter
+hireling
+crew member
+relationship
+buddies
+best friend
+aligned himself
+friendo
+team-mate
+boyf
+bunkie
+you guys
+support person
+partners
+business associate
+by a friend
+girls
+fellow
+lads
+little friend
+pestered
+boy
+not friend
+company
+lady friend
+benefactrice
+benefactrix
+hired help
+devoted friend
+folks
+patrons
+seeing anybody
+almost-friend
+dudette
+well wisher
+old dear
+advocate
+take her sider
+sincere friend
+really good friend
+dating anyone
+allied fish
+old mucker
+sweethearts
+dating someone
+research associate
+some of my friends
+hearties
+love-hate partner
+this company
+what friends
+chum
+companion
+collaborator
+gentleman
+connector
+contact
+char
+servingman
+lord
+old mate
+one boyfriend
+link
+charlady
+seneschal
+convoyer
+connecting
+mate
+old friend
+charwoman
+serf
+attendant company
+elder
+daily woman
+turnspit
+gallant
+old pal
+beau
+mrs mop
+galley slave
+cavalier
+colleague
+skivvy
+servingwoman
+self-seeker
+linked
+household help
+liegeman
+pursuivant
+spouse
+joined
+comrade in arms
+friend zoner
+menial man
+famulus
+sycophant
+life partner
+boy toy
+crony
+bruh
+combined friend
+boyfriend
+maid-of-all-work
+dependent
+crawler
+husband
+collaborative
+homie
+sworn brother
+maidservant
+server
+wooer
+wife
+little buddy
+dub-dub
+drudge
+serving wench
+leech
+young lady
+bruvva
+girly best friend
+hand of friendship
+mistress
+child
+retainer
+cleaning person
+hanger-on
+companionate
+man friday
+former handmaid
+squire
+climber
+new colleague
+circle of friends
+life
+side of me
+ace boon boy
+flunkey
+guard
+creep
+ace
+steward
+guide
+flatterer
+cuz
+guy
+bai
+chaperone
+noble
+baby
+big friend
+fella
+amah
+minder
+toady
+supporter
+serving maid
+chaperone
+lady of the bedchamber
+guy pal
+ace booner
+amity
+single friend
+domestic partner
+tweeny
+personal assistant
+caretaker
+company
+footman
+own side
+scullion
+lady in waiting
+housekeeping
+girlfriend
+slavey
+bodyguard
+servant girl
+little friend
+live-in
+custodian
+workmate
+abettor
+buddie's friend
+butler
+flunky
+warden
+side
+au pair
+right-hand man
+loved
+henchman
+upholder
+carer
+same side
+right-hand woman
+law-school
+comrade
+valet
+from my friend
+puzzle piece
+chambermaid
+train-bearer
+baby
+ally
+sympathizer
+votary
+daily help

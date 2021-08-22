@@ -1,0 +1,81 @@
+{% extends "fishlayout.html" %}
+{% block title %}
+Rivals
+{% endblock %}
+{% block style %}
+<style>
+body   {
+    background-color:black;
+}
+</style>
+{% endblock %}
+{% block content %}
+    <div class="accordion" id="accordion" style="width:100%; height:max-content; margin: auto;">
+        {% for fish in dicts %}
+        <div class="card">
+            <div class="card-header" id="h-{{ fish.fish_id }}">
+                <h2 class="mb-0">
+                <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#c-{{ fish.fish_id }}" aria-expanded="true" aria-controls="c-{{ fish.fish_id }}">
+                    {{ fish.name }} the {{ fish.image }}
+                </button>
+                </h2>
+            </div>
+      
+            <div id="c-{{ fish.fish_id }}" class="collapse" aria-labelledby="h-{{ fish.fish_id }}" data-parent="#accordion">
+                <div class="card-body" style="float: left;">
+                        <p style="max-width: 300px;" >This is {{ fish.name }}, {{ fish.username }}'s handsome chap.</p>
+                        <p id="i-{{ fish.fish_id }}">Respect: {{ fish.respect }}</p>
+                    {% if fish.respected %}
+                    <button disabled class="btn btn-success">Respect</button>
+                    <button disabled class="btn btn-warning">Diss</button>
+                    {% else %}
+                    <button id="r-{{ fish.fish_id }}" onclick="chngrespect(this.value, 'rivs', 'resp')" value="{{ fish.fish_id }}" class="btn btn-success">Respect</button>
+                    <button id="d-{{ fish.fish_id }}" onclick="chngrespect(this.value, 'rivs', 'diss')" value="{{ fish.fish_id }}" class="btn btn-warning">Diss</button>
+                    {% endif %}
+                </div>
+                <div class="containerr" style="float: left;">
+                    <img class="img-fluid" src="static/images/{{ fish.image }}.jpg" alt="rival pic">
+                    <div id="R-{{ fish.fish_id }}" style="font-size: xx-large;" class="centered">{{ fish.respected }}</div>
+                </div>
+                <div style="float: left; width: 200px">
+                    <p id="newcom-{{ fish.fish_id }}" style="background-color: cornsilk; margin-left: 10px; border-radius: 5px; padding: 5px; display:none"></p>
+                    {% for comment in allcom[loop.index0] %}
+                    <p style="background-color: cornsilk; margin-left: 10px; border-radius: 5px; padding: 5px;">{{ comment.username }}: "{{ comment.comment }}" ({{ comment.time }})</p>
+                    {% endfor %}
+                    <div class="modal fade" id="Modal-{{ fish.fish_id }}" tabindex="-1" role="dialog" aria-labelledby="ModalLabel-{{ fish.fish_id }}" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="ModalLabel-{{ fish.fish_id }}">More comments</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                            {% for comment in othercom[loop.index0] %}
+                            <p style="background-color: cornsilk; margin-left: 10px; border-radius: 5px; padding: 5px;">{{ comment.username }}: "{{ comment.comment }}" ({{ comment.time }})</p>
+                            {% endfor %}
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="float: left; padding: 10px;">
+                    <button style="margin-bottom: 20px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal-{{ fish.fish_id }}">
+                        More comments
+                    </button>
+                    <form class="comform" method="post">
+                        <input style="margin-bottom: 10px;" name="commentstr" class="form-control" placeholder="Leave a comment!" type="text">
+                        <button name="fish_id" value="{{ fish.fish_id }}" class="btn btn-outline-success">Comment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <br>
+    <br>
+{% endblock %}

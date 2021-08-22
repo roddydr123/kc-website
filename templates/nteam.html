@@ -1,0 +1,113 @@
+{% extends "layout.html" %}
+{% block title %}
+Team
+{% endblock %}
+{% block content %}
+<div id="back" style="background-color: aqua;">
+    <div class="card-columns" style="margin-left: 8%;">
+
+        <div class="card" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='images/bigvish1.jpg')}}" class="card-img-top" alt="big vish mugshot">
+            <div class="card-body">
+                <h5 class="card-title">Big Vish</h5>
+                <p class="card-text">Winger</p>
+                <button id="switch" class="btn btn-primary">Switch to striker</button>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='images/bigbb.jpg')}}" class="card-img-top" alt="bbbecks mugshot">
+            <div class="card-body">
+                <h5 class="card-title">Big Bad Becks</h5>
+                <p class="card-text">Midfield / Any</p>
+                <button onclick="changevis();" id="many" class="btn btn-primary">Make Mays any</button>
+            </div>
+        </div>
+
+        <div id="offside" class="card" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='images/biglim1.jpg')}}" class="card-img-top" alt="big lim mugshot">
+            <div class="card-body">
+                <h5 class="card-title">Big Lim</h5>
+                <p class="card-text">Centre striker</p>
+                <button id="onside" onclick="this.innerHTML='Offside'; colourrr()" class="btn btn-primary">Make a run</button>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='images/pevans.jpg')}}" class="card-img-top" alt="pevans mugshot">
+            <div class="card-body">
+                <h5 class="card-title">Pevans</h5>
+                <p class="card-text">Forward / Any</p>
+                <button onclick= "changevis();" style="visibility: hidden" id="sany" class="btn btn-primary">Make Sanj any</button>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='images/kiddy.jpg')}}" id="fiddy" class="card-img-top" alt="kidler mugshot">
+            <div class="card-body">
+                <h5 class="card-title">Hugh G/The Kidler</h5>
+                <p id="RAM" class="card-text">RAM</p>
+                <button id="chip" class="btn btn-primary">Chip it</button>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img src="{{ url_for('static', filename='images/raygetard.jpg')}}" class="card-img-top" alt="ray mugshot">
+            <div class="card-body">
+                <h5 class="card-title">Ray Putin</h5>
+                <p class="card-text">Left Centre Midfield</p>
+                <button id="bangit" class="btn btn-primary">Bang it</button>
+                <p id="shot" style="float:right"> </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+        <script>
+            let shotacc = 12;
+            function shotaccd()     {
+                shotacc--;
+            }
+
+            function changevis()    {
+                let sanj = document.querySelector("#sany");
+                let mays = document.querySelector("#many");
+                if (sanj.style.visibility === 'hidden')  {
+                    sanj.style.visibility = 'visible';
+                }
+                else    {
+                    sanj.style.visibility = 'hidden';
+                }
+                if (mays.style.visibility === 'hidden')  {
+                    mays.style.visibility = 'visible';
+                }
+                else    {
+                    mays.style.visibility = 'hidden';
+                }
+            }
+
+            function changeimage()  {
+                var img = document.getElementById("fiddy");
+                img.src ="{{ url_for('static', filename='images/kidler.jpg')}}";
+                return false;
+            }
+
+            function colourrr()  {
+                document.querySelector("#offside").style.backgroundColor = 'orange';
+            }
+
+            document.querySelector("#switch").onclick = function()  {
+                alert("Big Lim's already there");
+            }
+            document.querySelector("#chip").onclick = function()    {
+                document.querySelector("#back").style.backgroundColor = 'red';
+                document.querySelector("#RAM").innerHTML = "RAM ur nan";
+                changeimage();
+            }
+            
+            document.querySelector("#bangit").onclick = function()  {
+                shotaccd()
+                document.querySelector("#shot").innerHTML = "shot accuracy: " + shotacc + "%"
+            }
+        </script>
+{% endblock %}

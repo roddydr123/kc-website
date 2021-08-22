@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+{% block title %}
+Moments
+{% endblock %}
+{% block content %}
+<div class="momen">
+    <div class="boxes">
+        <div class="gallery space">
+            <img class="photo" src="{{ url_for('static', filename='images/fiddy_off.jpg')}}" alt="fiddy's greatest performance">
+            <div class="caption">Fiddy's Finest Hour</div>
+        </div>
+        <div class="gallery space">
+            <img class="photo" src="{{ url_for('static', filename='images/fraser_any.jpg')}}" alt="fraser as any went well">
+            <div class="caption">A typical night at the Shack</div>
+        </div>
+        <div class="gallery space">
+            <img class="photo" src="{{ url_for('static', filename='images/cucked.jpg')}}" alt="losing in the final again">
+            <div class="caption">Cucked in the final again</div>
+        </div>
+    </div>
+    <div class="boxes">
+        <div class="gallery space">
+            <iframe style="width:100%" width="560" height="285" src="https://www.youtube.com/embed/bEVGtd42Hy4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="caption">Bicycle Boi</div>
+        </div>
+        <div class="gallery space">
+            <img class="photo" src="{{ url_for('static', filename='images/div4title.jpg')}}" alt="winning the title">
+            <div class="caption">Ecstasy</div>
+        </div>
+        <div class="gallery space">
+            <img class="photo" src="{{ url_for('static', filename='images/record_history.jpg')}}" alt="depression">
+            <div class="caption">Depression</div>
+        </div>
+    </div>
+    <div class="boxes">
+        <div class="gallery space">
+            <img class="photo" src="{{ url_for('static', filename='images/bigsad.jpg')}}" alt="phat loss">
+            <div style="width:100%; height: 100px">
+                <h2 id="cap" style="margin-left: 20%; width:100%; height: 20px; margin-top: 10px;">            </h2>
+                <form class="formm" onsubmit="change(); return false;">
+                    <input type="text" id="idea" placeholder="caption this" style="width: 150px">
+                    <input type="submit" class="btn btn-primary" value="Submit">
+                </form>
+            </div>
+        </div>
+        <div class="gallery space">
+            <img class="photo" src="{{ url_for('static', filename='images/win-crowd.jpg')}}" alt="crowd">
+            <div class="caption">8th time lucky</div>
+        </div>
+        <div class="gallery space">
+            <iframe style="width:100%" width="560" height="285" src="https://www.youtube.com/embed/51xL-1wECO4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="caption">No Rules Cup winners ceremony</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function change()   {
+        let capti = document.querySelector("#idea").value;
+        if (capti === '')
+        {
+            capti = 'The Big Sad';
+        }
+        document.querySelector("#cap").innerHTML = capti;
+    }
+</script>
+{% endblock %}

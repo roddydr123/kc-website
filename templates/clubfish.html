@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+{% block title %}
+Club Fish
+{% endblock %}
+{% block content %}
+
+<div class="hold" style="background-image: url(https://i.ytimg.com/vi/aLZyADWyAW0/maxresdefault.jpg);">
+    <div id="orig" class="titles" style="display: block;">
+        <h1>Club Fish</h1>
+        <div class="samesize">
+            <p>glugluglug</p>
+        </div>
+        <button class="btn btn-primary" onclick="register1();">Join</button>
+        <button class="btn btn-primary" onclick="login1();">Log In</button>
+    </div>
+
+    <div id="reg-mid" class="titles" style="display: none;">
+        <h1>Club Fish</h1>
+        <div class="samesize">
+            <div class="form-group">
+                <label for="reg-mid-range">How keen are you to join?</label>
+                <input id="reg-mid-range" type="range" class="form-control-range">
+            </div>
+        </div>
+        <button class="btn btn-primary" onclick="register2();">Next</button>
+    </div>
+
+    <div id="reg-final" class="titles" style="display: none;">
+        <h1>Club Fish</h1>
+        <div class="samesize">
+            <form id="finalform" method="post" action="/clubfish">
+                <div class="form-row align-items-center">
+                    <div class="col-auto" style="width: 45%; margin: auto;">
+                      <input type="text" class="form-control" name="username" placeholder="Username">
+                    </div>
+                    <div class="col-auto" style="width: 45%; margin: auto;">
+                      <div class="input-group">
+                        <input type="password" class="form-control" name="password" placeholder="Password">
+                      </div>
+                    </div>
+                  </div>
+              </form>
+        </div>
+        <button type="submit" class="btn btn-primary" form="finalform" name="register">Submit</button>
+    </div>
+
+    <div id="log-mid" class="titles" style="display: none;">
+        <h1>Club Fish</h1>
+        <div class="samesize">
+            <div class="form-group">
+                <label for="log-mid-range">How excited are you to log in?</label>
+                <input id="log-mid-range" type="range" class="form-control-range">
+            </div>
+        </div>
+        <button class="btn btn-primary" onclick="login2();">Next</button>
+    </div>
+
+    <div id="log-mid-message" class="titles" style="display: none;">
+        <h1>Club Fish</h1>
+        <div class="samesize">
+            <p id="log-message"> </p>
+        </div>
+        <button class="btn btn-primary" onclick="login3();">Next</button>
+    </div>
+
+    <div id="log-final" class="titles" style="display: none;">
+        <h1>Club Fish</h1>
+        <div class="samesize">
+            <form id="logform" method="post" action="/clubfish">
+                <div class="form-row align-items-center">
+                    <div class="col-auto" style="width: 45%; margin: auto;">
+                      <input type="text" class="form-control" name="username" placeholder="Username">
+                    </div>
+                    <div class="col-auto" style="width: 45%; margin: auto;">
+                      <div class="input-group">
+                        <input type="password" class="form-control" name="password" placeholder="Password">
+                      </div>
+                    </div>
+                  </div>
+              </form>
+        </div>
+        <button type="submit" class="btn btn-primary" form="logform" name="logbutton">Log In</button>
+    </div>
+
+    <div style="height: 50px"></div>
+    <div id="clubinfo">
+        <p>Club Fish is the fastest growing animal-based social network on the planet.</p>
+        <p>"So much better than Club Penguin" - Dalai Lama</p>
+        <p>"Signing up was the defining event of my life!" - John the Baptist</p>
+    </div>
+</div>
+{% endblock %}
