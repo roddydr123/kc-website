@@ -9,6 +9,7 @@ from datetime import datetime
 from os import path
 
 
+
 app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 app.config["SESSION_FILE_DIR"] = mkdtemp()
