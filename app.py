@@ -1,6 +1,6 @@
 from flask import (Flask, flash, jsonify,
                    redirect, render_template, request, session)
-from flask_session import Session
+from flask_session.__init__ import Session
 from pymethods import (login_required, check_reg, apology,
                        dbs, dbss, getAdjective, getElapsedTime, genName)
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -18,32 +18,8 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 
-@app.route("/index")
-@app.route("/")
-def index():
-    return render_template("index.html")
-
-
-@app.route("/stats")
-def stats():
-    return render_template("stats.html", title="Stats")
-
-
-@app.route("/rivals")
-def rivals():
-    return render_template("nnrivals.html", title="Rivals")
-
-
-@app.route("/moments")
-def moments():
-    return render_template("nmoments.html", title="Moments")
-
-
-@app.route("/team")
-def team():
-    return render_template("nteam.html", title="Meet the Team!")
-
-
+@app.route("/index", methods=['GET'])
+@app.route("/", methods=['GET'])
 @app.route("/clubfish", methods=['GET', 'POST'])
 def clubfish():
     if request.method == 'GET':
